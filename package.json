@@ -1,0 +1,22 @@
+{
+  "name": "OrangeHRM",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marko-Muza/OrangeHRM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marko-Muza/OrangeHRM/issues"
+  },
+  "homepage": "https://github.com/Marko-Muza/OrangeHRM#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.5"
+  }
+}
