@@ -72,6 +72,7 @@ export default defineConfig({
         channel: "chrome",
         deviceScaleFactor: undefined,
         viewport: null,
+        headless: false,
         launchOptions: {
           args: ["--start-maximized"]
         }
