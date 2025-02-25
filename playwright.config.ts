@@ -26,7 +26,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/",
+    baseURL: "https://opensource-demo.orangehrmlive.com",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retry-with-trace",
@@ -67,7 +67,15 @@ export default defineConfig({
     // },
     {
       name: "Google Chrome",
-      use: { ...devices["Desktop Chrome"], channel: "chrome", headless: false }
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: "chrome",
+        deviceScaleFactor: undefined,
+        viewport: null,
+        launchOptions: {
+          args: ["--start-maximized"]
+        }
+      }
     }
   ]
 

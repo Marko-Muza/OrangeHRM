@@ -1,0 +1,14 @@
+# Playwright Specific
+node_modules/
+test-results/
+playwright-report
+summary.json
+playwright.config.js
+tests-examples/
+
+# IDE - VSCode
+.vscode/*
+
+# Demo specs
+/tests/example.spec.js
+/tests/trying.spec.js
