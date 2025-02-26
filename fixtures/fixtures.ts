@@ -1,25 +1,31 @@
-import { test as base } from "@playwright/test";
+import { test as base, expect } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
+import { Navigation } from "../pages/Navigation";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const username = process.env.LOGIN_USER ?? "";
-const password = process.env.LOGIN_PASS ?? "";
-
-if (!username || !password) {
-  throw new Error(
-    `Missing environment variables: ${!username ? "LOGIN_USER" : ""} ${!password ? "LOGIN_PASS" : ""}`.trim()
-  );
-}
-
-export const test = base.extend<{ loginPage: LoginPage }>({
+export const test = base.extend<{ loginPage: LoginPage; navigation: Navigation }>({
   loginPage: async ({ page }, use) => {
+    const username = process.env.LOGIN_USER;
+    const password = process.env.LOGIN_PASS;
+
+    if (!username || !password) {
+      throw new Error(
+        `Missing environment variables: ${!username ? "LOGIN_USER" : ""} ${!password ? "LOGIN_PASS" : ""}`
+      );
+    }
+
     const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage();
     await loginPage.login(username, password);
     await use(loginPage);
   },
+
+  navigation: async ({ page }, use) => {
+    const navigation = new Navigation(page);
+    await use(navigation);
+  },
 });
 
-export { expect } from "@playwright/test";
+export { expect };
