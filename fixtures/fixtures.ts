@@ -18,9 +18,7 @@ export const test = base.extend<{ loginPage: LoginPage; navigation: Navigation; 
       );
     }
 
-    const loginPage = new LoginPage(page);
-    await loginPage.goToLoginPage();
-    await loginPage.login(username, password);
+    const loginPage = new LoginPage(page, username, password);
     await use(loginPage);
   },
 
